@@ -1,0 +1,17 @@
+export enum INPUT_VARIANT {
+    NAME = 'name',
+    SURNAME = 'surname',
+    EMAIL = 'email',
+    PASSWORD = 'password',
+    CONFIRM_PASSWORD = 'confirmPassword',
+    DATE_OF_BIRTH = 'dateOfBirth',
+    CITY = 'city',
+    NATION = 'nation',
+    YOUTH_TEAM = 'youthTeam',
+    CLUB_OR_FREE = 'clubOrFree',
+    AGENCY_OR_FREE = 'agencyOrFree',
+    POSITION = 'position',
+    SHOOTS = 'shoots',
+    HEIGHT = 'height',
+    WEIGHT = 'weight',
+  }
