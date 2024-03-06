@@ -13,10 +13,10 @@ import { BUTTON_VARIANT } from "../../../../../../shared/buttons/types";
 import { HeaderLoginInSignIn } from "../../../../../../shared/headerLoginSignIn/headerLoginSignIn";
 import { Inputs } from "../../../../../../shared/inputs/input";
 import { INPUT_VARIANT } from "../../../../../../shared/inputs/types";
-import { signInPlayerBaseScreenStyle } from "../../../../../../styles/screens/signInPlayerBaseScreenStyle";
-import { useBaseInputsSelector } from "../../../selectors/useBaseInputsSelector";
+import { signInPlayerAddScreenStyle } from "../../../../../../styles/screens/signInPlayerAddScreenStyle";
+import { useAddInputsSelector } from "../../../selectors/useAddInputsSelector";
 
-export const SignInPlayerBaseScreen = () => {
+export const SignInPlayerAddScreen = () => {
   const text = "signup";
   const modifiedText =
     text.charAt(0).toUpperCase() +
@@ -42,18 +42,18 @@ export const SignInPlayerBaseScreen = () => {
     Keyboard.dismiss();
   };
 
-  const inputsSelector = useBaseInputsSelector();
+  const addInputs = useAddInputsSelector();
 
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
       <View style={{ flex: 1 }}>
         <HeaderLoginInSignIn />
-        <View style={signInPlayerBaseScreenStyle.signInWrapper}>
-          <View style={signInPlayerBaseScreenStyle.signInContainer}>
-            <Text style={signInPlayerBaseScreenStyle.nameOfScreen}>
+        <View style={signInPlayerAddScreenStyle.signInWrapper}>
+          <View style={signInPlayerAddScreenStyle.signInContainer}>
+            <Text style={signInPlayerAddScreenStyle.nameOfScreen}>
               {modifiedText}
             </Text>
-            {inputsSelector.map((item, index) => {
+            {addInputs.map((item, index) => {
               return (
                 <Inputs
                   placeholder={item.placeholder}
@@ -68,14 +68,6 @@ export const SignInPlayerBaseScreen = () => {
               style={{ marginLeft: 15, marginRight: 15 }}
               text="Next"
               variant={BUTTON_VARIANT.BLUE}
-              onPress={() => {}}
-              textVariant={TEXT_VARIANT.HEADER_LARGE}
-            />
-            <Text style={signInPlayerBaseScreenStyle.or}>or</Text>
-            <Button
-              style={{ marginLeft: 15, marginRight: 15 }}
-              text="Login"
-              variant={BUTTON_VARIANT.ORANGE}
               onPress={() => {}}
               textVariant={TEXT_VARIANT.HEADER_LARGE}
             />

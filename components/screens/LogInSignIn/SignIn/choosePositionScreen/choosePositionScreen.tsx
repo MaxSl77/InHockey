@@ -9,32 +9,36 @@ import { choosePositionScreenStyle } from "../../../../../styles/screens/chooseP
 
 export const ChoosePositionScreen = () => {
   return (
-    <>
+    <View>
       <HeaderLoginInSignIn />
       <View style={choosePositionScreenStyle.container}>
-          <View style={choosePositionScreenStyle.buttonContainer}>
-            <Button
-              text={"Player"}
-              onPress={() => {}}
-              variant={BUTTON_VARIANT.LIGHT_BLUE}
-            ></Button>
-            <Button
-              text={"Scout"}
-              onPress={() => {}}
-              variant={BUTTON_VARIANT.LIGHT_BLUE}
-            ></Button>
-            <Button
-              text={"Staff"}
-              onPress={() => {}}
-              variant={BUTTON_VARIANT.LIGHT_BLUE}
-            ></Button>
-            <Button
-              text={"LogIn"}
-              onPress={() => {}}
-              variant={BUTTON_VARIANT.ORANGE}
-            ></Button>
-          </View>
+        <View style={choosePositionScreenStyle.buttonContainer}>
+          <Button
+            text={"Player"}
+            onPress={() => {}}
+            variant={BUTTON_VARIANT.LIGHT_BLUE}
+            style={choosePositionScreenStyle.button}
+          ></Button>
+          <Button
+            text={"Scout"}
+            onPress={() => {}}
+            variant={BUTTON_VARIANT.LIGHT_BLUE}
+            style={choosePositionScreenStyle.button}
+          ></Button>
+          <Button
+            text={"Staff"}
+            onPress={() => {}}
+            variant={BUTTON_VARIANT.LIGHT_BLUE}
+            style={choosePositionScreenStyle.button}
+          ></Button>
+          <Button
+            text={"LogIn"}
+            onPress={() => {}}
+            variant={BUTTON_VARIANT.ORANGE}
+            style={choosePositionScreenStyle.button}
+          ></Button>
         </View>
-    </>
+      </View>
+    </View>
   );
 };

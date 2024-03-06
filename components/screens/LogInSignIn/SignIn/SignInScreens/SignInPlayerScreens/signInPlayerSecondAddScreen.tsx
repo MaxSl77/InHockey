@@ -13,10 +13,11 @@ import { BUTTON_VARIANT } from "../../../../../../shared/buttons/types";
 import { HeaderLoginInSignIn } from "../../../../../../shared/headerLoginSignIn/headerLoginSignIn";
 import { Inputs } from "../../../../../../shared/inputs/input";
 import { INPUT_VARIANT } from "../../../../../../shared/inputs/types";
-import { signInPlayerBaseScreenStyle } from "../../../../../../styles/screens/signInPlayerBaseScreenStyle";
-import { useBaseInputsSelector } from "../../../selectors/useBaseInputsSelector";
+import { signInPlayerAddScreenStyle } from "../../../../../../styles/screens/signInPlayerAddScreenStyle";
+import { signInPlayerSecondAddScreenStyle } from "../../../../../../styles/screens/signInPlayerSecondAddScreenStyle";
+import { useSecondAddInputsSelector } from "../../../selectors/useSecondAddInputsSelector";
 
-export const SignInPlayerBaseScreen = () => {
+export const SignInPlayerSecondAddScreen = () => {
   const text = "signup";
   const modifiedText =
     text.charAt(0).toUpperCase() +
@@ -42,18 +43,18 @@ export const SignInPlayerBaseScreen = () => {
     Keyboard.dismiss();
   };
 
-  const inputsSelector = useBaseInputsSelector();
+  const secondAddInputs = useSecondAddInputsSelector();
 
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
       <View style={{ flex: 1 }}>
         <HeaderLoginInSignIn />
-        <View style={signInPlayerBaseScreenStyle.signInWrapper}>
-          <View style={signInPlayerBaseScreenStyle.signInContainer}>
-            <Text style={signInPlayerBaseScreenStyle.nameOfScreen}>
+        <View style={signInPlayerSecondAddScreenStyle.signInWrapper}>
+          <View style={signInPlayerSecondAddScreenStyle.signInContainer}>
+            <Text style={signInPlayerSecondAddScreenStyle.nameOfScreen}>
               {modifiedText}
             </Text>
-            {inputsSelector.map((item, index) => {
+            {secondAddInputs.map((item, index) => {
               return (
                 <Inputs
                   placeholder={item.placeholder}
@@ -66,16 +67,8 @@ export const SignInPlayerBaseScreen = () => {
             })}
             <Button
               style={{ marginLeft: 15, marginRight: 15 }}
-              text="Next"
+              text="Go"
               variant={BUTTON_VARIANT.BLUE}
-              onPress={() => {}}
-              textVariant={TEXT_VARIANT.HEADER_LARGE}
-            />
-            <Text style={signInPlayerBaseScreenStyle.or}>or</Text>
-            <Button
-              style={{ marginLeft: 15, marginRight: 15 }}
-              text="Login"
-              variant={BUTTON_VARIANT.ORANGE}
               onPress={() => {}}
               textVariant={TEXT_VARIANT.HEADER_LARGE}
             />

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import {
+  Keyboard,
   Linking,
-  SafeAreaView,
   Text,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
 } from "react-native";
 import { TEXT_VARIANT } from "../../../../shared/AppText/types";
@@ -35,8 +36,13 @@ export const LogInScreen = () => {
     setEmail(text);
   };
 
+  const dismissKeyboard = () => {
+    Keyboard.dismiss();
+  };
+
   return (
-    <>
+    <TouchableWithoutFeedback onPress={dismissKeyboard}>
+      <View style={{ flex: 1 }}>
       <HeaderLoginInSignIn />
       <View style={loginScreenStyle.loginWrapper}>
         <View style={loginScreenStyle.loginContainer}>
@@ -75,9 +81,7 @@ export const LogInScreen = () => {
           />
         </View>
       </View>
-    </>
-    // <SafeAreaView>
-
-    // </SafeAreaView>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };

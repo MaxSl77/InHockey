@@ -5,14 +5,14 @@ import { Colors } from "../const/colors";
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
 
-export const loginScreenStyle = StyleSheet.create({
-  loginWrapper: {
+export const signInPlayerSecondAddScreenStyle = StyleSheet.create({
+    signInWrapper: {
     width: windowWidth,
     justifyContent: "center",
     padding: scaleSize(20),
     height: windowHeight,
   },
-  loginContainer: {
+  signInContainer: {
     borderColor: Colors.BLUE,
     borderWidth: 3,
     borderRadius: scaleSize(50),
