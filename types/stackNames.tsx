@@ -1,5 +1,5 @@
 export enum StackNames {
-    TAB_STACK = 'TabStack',
+    BOTTOM_TAB_STACK = 'BottomTabStack',
+    ENTER_STACK = 'EnterStack',
     MAIN_STACK = 'MainStack',
-    DRAWER_STACK = 'DrawerStack',
 }

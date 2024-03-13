@@ -1,12 +1,16 @@
+import { RouteProp } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { useState } from "react";
 import {
   Keyboard,
   Linking,
+  SafeAreaView,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
+import { EnterStackParamList } from "../../../../../../navigation/enterNavigationStack";
 import { TEXT_VARIANT } from "../../../../../../shared/AppText/types";
 import { Button } from "../../../../../../shared/buttons/button";
 import { BUTTON_VARIANT } from "../../../../../../shared/buttons/types";
@@ -14,9 +18,19 @@ import { HeaderLoginInSignIn } from "../../../../../../shared/headerLoginSignIn/
 import { Inputs } from "../../../../../../shared/inputs/input";
 import { INPUT_VARIANT } from "../../../../../../shared/inputs/types";
 import { signInPlayerAddScreenStyle } from "../../../../../../styles/screens/signInPlayerAddScreenStyle";
+import { ScreenNames } from "../../../../../../types/screenNames";
 import { useAddInputsSelector } from "../../../selectors/useAddInputsSelector";
 
-export const SignInPlayerAddScreen = () => {
+interface SignInPlayerAddScreenProps {
+  navigation: NativeStackNavigationProp<EnterStackParamList>;
+  route: RouteProp<EnterStackParamList, ScreenNames.SIGN_IN_PLAYER_ADDITTIONAL>;
+}
+
+export const SignInPlayerAddScreen = ({
+  navigation,
+}: SignInPlayerAddScreenProps) => {
+  const { navigate } = navigation;
+
   const text = "signup";
   const modifiedText =
     text.charAt(0).toUpperCase() +
@@ -38,14 +52,14 @@ export const SignInPlayerAddScreen = () => {
     setEmail(text);
   };
 
-  const dismissKeyboard = () => {
-    Keyboard.dismiss();
-  };
-
   const addInputs = useAddInputsSelector();
 
+  const goToSignInPlayerSecondAdditionalScreen = () => {
+    navigate(ScreenNames.SIGN_IN_PLAYER_ADDITTIONAL_CONTINUE);
+  };
+
   return (
-    <TouchableWithoutFeedback onPress={dismissKeyboard}>
+    <SafeAreaView>
       <View style={{ flex: 1 }}>
         <HeaderLoginInSignIn />
         <View style={signInPlayerAddScreenStyle.signInWrapper}>
@@ -68,12 +82,12 @@ export const SignInPlayerAddScreen = () => {
               style={{ marginLeft: 15, marginRight: 15 }}
               text="Next"
               variant={BUTTON_VARIANT.BLUE}
-              onPress={() => {}}
+              onPress={goToSignInPlayerSecondAdditionalScreen}
               textVariant={TEXT_VARIANT.HEADER_LARGE}
             />
           </View>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </SafeAreaView>
   );
 };

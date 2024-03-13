@@ -1,23 +1,37 @@
+import { RouteProp } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { useState } from "react";
 import {
-  Keyboard,
   Linking,
+  SafeAreaView,
   Text,
-  TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
+import { EnterStackParamList } from "../../../../../../navigation/enterNavigationStack";
 import { TEXT_VARIANT } from "../../../../../../shared/AppText/types";
 import { Button } from "../../../../../../shared/buttons/button";
 import { BUTTON_VARIANT } from "../../../../../../shared/buttons/types";
 import { HeaderLoginInSignIn } from "../../../../../../shared/headerLoginSignIn/headerLoginSignIn";
 import { Inputs } from "../../../../../../shared/inputs/input";
-import { INPUT_VARIANT } from "../../../../../../shared/inputs/types";
-import { signInPlayerAddScreenStyle } from "../../../../../../styles/screens/signInPlayerAddScreenStyle";
 import { signInPlayerSecondAddScreenStyle } from "../../../../../../styles/screens/signInPlayerSecondAddScreenStyle";
+import { ScreenNames } from "../../../../../../types/screenNames";
+import { StackNames } from "../../../../../../types/stackNames";
 import { useSecondAddInputsSelector } from "../../../selectors/useSecondAddInputsSelector";
 
-export const SignInPlayerSecondAddScreen = () => {
+interface SignInPlayerSecondAddScreenProps {
+  navigation: NativeStackNavigationProp<EnterStackParamList>;
+  route: RouteProp<
+    EnterStackParamList,
+    ScreenNames.SIGN_IN_PLAYER_ADDITTIONAL_CONTINUE
+  >;
+}
+
+export const SignInPlayerSecondAddScreen = ({
+  navigation,
+}: SignInPlayerSecondAddScreenProps) => {
+  const { navigate } = navigation;
+
   const text = "signup";
   const modifiedText =
     text.charAt(0).toUpperCase() +
@@ -38,15 +52,16 @@ export const SignInPlayerSecondAddScreen = () => {
   const handleEmailChange = (text: string) => {
     setEmail(text);
   };
-
-  const dismissKeyboard = () => {
-    Keyboard.dismiss();
-  };
-
   const secondAddInputs = useSecondAddInputsSelector();
 
+  const goToTabStack = () => {
+    navigate(StackNames.BOTTOM_TAB_STACK, {
+      screen: ScreenNames.HOME,
+    });
+  };
+
   return (
-    <TouchableWithoutFeedback onPress={dismissKeyboard}>
+    <SafeAreaView>
       <View style={{ flex: 1 }}>
         <HeaderLoginInSignIn />
         <View style={signInPlayerSecondAddScreenStyle.signInWrapper}>
@@ -69,12 +84,12 @@ export const SignInPlayerSecondAddScreen = () => {
               style={{ marginLeft: 15, marginRight: 15 }}
               text="Go"
               variant={BUTTON_VARIANT.BLUE}
-              onPress={() => {}}
+              onPress={goToTabStack}
               textVariant={TEXT_VARIANT.HEADER_LARGE}
             />
           </View>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </SafeAreaView>
   );
 };

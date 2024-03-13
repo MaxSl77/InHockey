@@ -1,13 +1,12 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View, ViewBase } from "react-native";
+import { StatusBar, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { useLoadedFonts } from "./components/hooks/useLoadedFonts";
-import { ChoosePositionScreen } from "./components/screens/LogInSignIn/SignIn/choosePositionScreen/choosePositionScreen";
-import { LogInScreen } from "./components/screens/LogInSignIn/LogIn/logInScreen";
-import { SignInPlayerBaseScreen } from "./components/screens/LogInSignIn/SignIn/SignInScreens/SignInPlayerScreens/signInPlayerBaseScreen";
-import { SignInPlayerAddScreen } from "./components/screens/LogInSignIn/SignIn/SignInScreens/SignInPlayerScreens/signInPlayerAddScreen";
-import { SignInPlayerSecondAddScreen } from "./components/screens/LogInSignIn/SignIn/SignInScreens/SignInPlayerScreens/signInPlayerSecondAddScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { AppStack } from "./navigation/appNavigationStack";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -19,12 +18,13 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView>
-      {/* <ChoosePositionScreen /> */}
-      {/* <LogInScreen /> */}
-      {/* { <SignInPlayerBaseScreen /> } */}
-      {/* {<SignInPlayerAddScreen />} */}
-      {/* {<SignInPlayerSecondAddScreen />} */}
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <StatusBar />
+        <NavigationContainer>
+          <AppStack />
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </Provider>
   );
 }
