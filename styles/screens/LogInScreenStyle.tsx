@@ -26,7 +26,7 @@ export const loginScreenStyle = StyleSheet.create({
     paddingTop: scaleSize(30),
   },
   inputName: {
-    borderColor: Colors.GRAY,
+    borderColor: Colors.LIGHT_GRAY,
     borderWidth: 2,
     height: scaleSize(90),
     borderRadius: scaleSize(50),
@@ -36,7 +36,7 @@ export const loginScreenStyle = StyleSheet.create({
     paddingLeft: scaleSize(30),
   },
   inputPassword: {
-    borderColor: Colors.GRAY,
+    borderColor: Colors.LIGHT_GRAY,
     borderWidth: 2,
     height: scaleSize(90),
     borderRadius: scaleSize(50),
@@ -46,7 +46,7 @@ export const loginScreenStyle = StyleSheet.create({
     paddingLeft: scaleSize(30),
   },
   or: {
-    color: Colors.GRAY,
+    color: Colors.LIGHT_GRAY,
     fontSize: 24,
     textAlign: "center",
     marginTop: scaleSize(10),

@@ -7,9 +7,9 @@ import { TEXT_VARIANT } from "../AppText/types";
 import { BUTTON_VARIANT } from "./types";
 
 type ButtonProps = {
-    text: string,
+    text?: string,
     disabled?: boolean,
-    variant: BUTTON_VARIANT,
+    variant?: BUTTON_VARIANT,
     style?: StyleProp<ViewStyle>,
     onPress: () => void,
     textVariant?: TEXT_VARIANT,
