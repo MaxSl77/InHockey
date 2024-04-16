@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
-import { scaleSize } from "../../utilities";
-import { Colors } from "../const/colors";
+import { scaleSize } from "../../../utilities";
+import { Colors } from "../../const/colors";
 
 export const personalButtonInfoStyle = StyleSheet.create({
     buttonsWrapper: {

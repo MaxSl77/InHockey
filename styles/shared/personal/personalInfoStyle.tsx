@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
-import { scaleSize } from "../../utilities";
-import { Colors } from "../const/colors";
+import { scaleSize } from "../../../utilities";
+import { Colors } from "../../const/colors";
 
 export const personalInfoStyle = StyleSheet.create({
   wrapper: {},
@@ -43,4 +43,5 @@ export const personalInfoStyle = StyleSheet.create({
   profileInfo: {},
 
   headerWrapper: {},
+
 });

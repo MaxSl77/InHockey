@@ -1,0 +1,19 @@
+{
+    "player": {
+        "personal_info": {
+            "Name": "Maxim Slabko",
+            "date_of_birth": "Nov 01, 2002",
+            "age": 21,
+            "place_of_birth": "Minsk, BLR",
+            "nationality": "Belarusian"
+        },
+        "club_info": {
+            "youth_team": "Dinamo Minsk",
+            "position": "Defender",
+            "height": "190cm/6’3”",
+            "weight": "90kg/172lbs",
+            "shoots": "-",
+            "contract": "-"
+        }
+    }
+}

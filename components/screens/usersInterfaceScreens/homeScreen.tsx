@@ -9,10 +9,7 @@ import { PersonalInfoSection } from "../../../shared/personalInfo/personalInfo";
 export const HomeScreen = () => {
   return (
     <SafeAreaView>
-      <Header />
-      <PersonalInfoSection />
-      <PersonalButtonsInfo />
-      <Text>Hello new User!</Text>
+      <Header />  
     </SafeAreaView>
   );
 };
