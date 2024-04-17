@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { personalPhotos } from '../../../styles/shared/personal/personalPhotos';
 import { Colors } from "../../../styles/const/colors";
 import { Button } from '../../buttons/button';
@@ -9,21 +9,32 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { EnterStackParamList } from '../../../navigation/enterNavigationStack';
 import { ScreenNames } from '../../../types/screenNames';
+import ImagePicker, { ImagePickerResponse } from 'react-native-image-picker';
+const firstPhoto = require('../../../assets/profilePhotos1.png')
+const secondPhoto = require('../../../assets/profilePhotos2.png')
 
-interface PersonalPhotosType {
-    navigation?: NativeStackNavigationProp<EnterStackParamList>;
-}
 
-const PersonalPhotos = ({ navigation }: PersonalPhotosType) => {
-    // const { navigate } = props.navigation;
 
-    // const goToPhotosScreen = () => {
-    //     navigate(ScreenNames.PHOTOS);
-    // };
+const PersonalPhotos = () => {
+    const navigation = useNavigation<NativeStackNavigationProp<EnterStackParamList>>();
+    const [image, setImage] = useState(null); // заменить потом на диспатч в редакс в базу
 
-    useEffect(() => {
-        console.log(navigation)
-    })
+
+    const handleRedirect = () => {
+        navigation.navigate('Photos');
+    };
+
+    const handleUploadPhoto = () => {
+        ImagePicker.launchImageLibrary({ mediaType: 'photo' }, (response) => {
+            if (response && !response.didCancel && !response.errorCode) {
+                //@ts-ignore
+                const source = (response as ImagePickerResponse).uri;
+                setImage(source);
+            } else {
+                console.log('canceled');
+            }
+        });
+    };
 
     return (
         <ScrollView contentContainerStyle={personalPhotos.wrapper}>
@@ -31,11 +42,15 @@ const PersonalPhotos = ({ navigation }: PersonalPhotosType) => {
                 style={{ marginLeft: 15, marginRight: 15, borderRadius: 20 }}
                 text="UPLOAD PHOTO"
                 variant={BUTTON_VARIANT.ORANGE}
-                onPress={() => console.log('123')}
+                onPress={handleUploadPhoto}
                 textVariant={TEXT_VARIANT.HEADER_LARGE}
             />
-            <View>
-                <Text></Text>
+            <View style={personalPhotos.photoWrapper}>
+                <Text style={personalPhotos.title}>My photos</Text>
+                <TouchableOpacity style={personalPhotos.photosPreview} onPress={handleRedirect}>
+                    <Image source={firstPhoto} style={[personalPhotos.photo, personalPhotos.firstPhoto]} />
+                    <Image source={secondPhoto} style={[personalPhotos.photo, personalPhotos.secondPhoto]} />
+                </TouchableOpacity>
             </View>
         </ScrollView >
     );
