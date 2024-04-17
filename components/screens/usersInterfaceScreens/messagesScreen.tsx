@@ -4,14 +4,13 @@ import { Footer } from "../../../shared/footer/ui/footer";
 import Header from "../../../shared/headerApp/ui/Header";
 import PersonalButtonsInfo from "../../../shared/personalInfo/personalButtonInfo/ui/personalButtonInfo";
 import { PersonalInfoSection } from "../../../shared/personalInfo/personalInfo";
+import { MessagesItemList } from "../../../shared/messages/ui/messageItemList/messageItemList";
 
 export const MessagesScreen = () => {
   return (
     <SafeAreaView>
       <Header />
-      <PersonalInfoSection />
-      <PersonalButtonsInfo />
-      <Text>Welcome to the messages!</Text>
+      <MessagesItemList />
     </SafeAreaView>
   );
 };

@@ -8,6 +8,8 @@ import { SignInPlayerBaseScreen } from "../components/screens/LogInSignIn/SignIn
 import { SignInPlayerAddScreen } from "../components/screens/LogInSignIn/SignIn/SignInScreens/SignInPlayerScreens/signInPlayerAddScreen";
 import { SignInPlayerSecondAddScreen } from "../components/screens/LogInSignIn/SignIn/SignInScreens/SignInPlayerScreens/signInPlayerSecondAddScreen";
 import { HomeScreen } from "../components/screens/usersInterfaceScreens/homeScreen";
+import { PhotosScreen } from "../components/screens/usersInterfaceScreens/photosScreen";
+import PersonalPhotos from "../shared/personalInfo/personalPhotos/personalPhotos";
 
 export type EnterStackParamList = {
   ChoosePosition: undefined;
@@ -16,6 +18,7 @@ export type EnterStackParamList = {
   SignInPlayerAdd: undefined;
   SignInPlayerSecondAdd: undefined;
   Home: undefined;
+  Photos: undefined;
   BottomTabStack: { screen: ScreenNames };
 };
 
@@ -56,6 +59,11 @@ export const EnterStack = () => {
          <EnterNavigator.Screen
           name={ScreenNames.HOME}
           component={HomeScreen}
+          options={{ headerShown: false, gestureEnabled: false }}
+        />
+         <EnterNavigator.Screen
+          name={ScreenNames.PHOTOS}
+          component={PhotosScreen}
           options={{ headerShown: false, gestureEnabled: false }}
         />
       </EnterNavigator.Navigator>

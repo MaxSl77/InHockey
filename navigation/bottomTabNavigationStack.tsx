@@ -25,7 +25,7 @@ export const BottomTabStack = () => {
       <RootTab.Navigator
         initialRouteName="Home"
         tabBarPosition='bottom'
-        screenOptions={{animationEnabled: false ,tabBarStyle: { backgroundColor: Colors.PRIMARY }, tabBarInactiveTintColor: Colors.WHITE, tabBarActiveTintColor: Colors.BLACK, tabBarIndicatorStyle: { height: 0 }}}
+        screenOptions={{ animationEnabled: false, tabBarStyle: { backgroundColor: Colors.PRIMARY }, tabBarInactiveTintColor: Colors.WHITE, tabBarActiveTintColor: Colors.BLACK, tabBarIndicatorStyle: { height: 0 } }}
       >
         <RootTab.Screen
           name={ScreenNames.HOME}
